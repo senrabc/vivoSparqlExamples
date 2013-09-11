@@ -1,0 +1,51 @@
+<html>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+SPARQL Example: Postions in VIVO  <HR>
+ <HR>
+ <div id="result1">Loading Live Results ...</div>
+ <HR>
+<img src="https://wiki.duraspace.org/download/attachments/33949008/Position14.png?version=1&modificationDate=1355080657503">
+<HR>
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>  <BR>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>  <BR>
+PREFIX bibo: <http://purl.org/ontology/bibo/>  <BR>
+PREFIX core: <http://vivoweb.org/ontology/core#>  <BR>
+PREFIX ands: <http://purl.org/ands/ontologies/vivo/>  <BR>
+SELECT  * WHERE  <BR>
+{ <BR>
+ <BR>
+?URI core:primaryEmail  'cpb@ufl.edu'. <BR>
+
+?URI core:personInPosition ?positionURI. <BR>
+ <BR>
+?positionURI rdfs:label ?Postionlabel <BR>
+ <BR>
+} <BR>
+<BR>
+<HR><A HREF="http://sparql.vivo.ufl.edu/VIVO/query?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+bibo%3A+%3Chttp%3A%2F%2Fpurl.org%2Fontology%2Fbibo%2F%3E%0D%0APREFIX+core%3A+%3Chttp%3A%2F%2Fvivoweb.org%2Fontology%2Fcore%23%3E%0D%0APREFIX+ands%3A+%3Chttp%3A%2F%2Fpurl.org%2Fands%2Fontologies%2Fvivo%2F%3E%0D%0ASELECT++*+WHERE%0D%0A%7B%0D%0A%3FURI+core%3AprimaryEmail++%27cpb%40ufl.edu%27.%0D%0A%3FURI+core%3ApersonInPosition+%3FpositionURI.%0D%0A%3FpositionURI+rdfs%3Alabel+%3FPostionlabel%0D%0A%7D&output=json&stylesheet=%2Fxml-to-html.xsl
+"> Click Here to run this query and get back JSON at sparql.vivo.ufl.edu</A>
+ 
+
+ View Source to see Javascript example:
+ 
+  <script>
+
+ var querystring = 'http://sparql.vivo.ufl.edu/VIVO/query?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+rdf%3A++%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+bibo%3A+%3Chttp%3A%2F%2Fpurl.org%2Fontology%2Fbibo%2F%3E%0D%0APREFIX+core%3A+%3Chttp%3A%2F%2Fvivoweb.org%2Fontology%2Fcore%23%3E%0D%0APREFIX+ands%3A+%3Chttp%3A%2F%2Fpurl.org%2Fands%2Fontologies%2Fvivo%2F%3E%0D%0ASELECT++*+WHERE%0D%0A%7B%0D%0A%3FURI+core%3AprimaryEmail++%27cpb%40ufl.edu%27.%0D%0A%3FURI+core%3ApersonInPosition+%3FpositionURI.%0D%0A%3FpositionURI+rdfs%3Alabel+%3FPostionlabel%0D%0A%7D&output=json&stylesheet=%2Fxml-to-html.xsl'
+ var results = "";
+$.getJSON(querystring,{},function(data) {
+
+       for (i = 0; i < 3 ; i++){
+        
+            results += "    " + data.results.bindings[i].URI.value + "   " + data.results.bindings[i].Postionlabel.value + "<br>" ;
+            document.getElementById("result1").innerHTML= results;
+           //alert(data.results.bindings[i].URI.value);
+           
+        }
+    });
+
+</script>
+</body>
+</html>
