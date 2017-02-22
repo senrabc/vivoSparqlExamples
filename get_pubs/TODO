@@ -1,0 +1,9 @@
+IDEA:
+get pubs by (email or uri), return apa formatted citation,
+return CSV for analytics
+
+Whats needed in an APA citation? Get citation from crossref after VIVO?
+
+FixThis if possible: In the vagrant uri's look like this for a profile
+#Dr Nelson
+(http://localhost:8080/vivo/individual?uri=http://vivo.ufl.edu/individual/n11937)
